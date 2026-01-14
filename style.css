@@ -84,6 +84,89 @@ nav {
 .section {
     padding: 100px 10%;
     scroll-margin-top: var(--scroll-offset); /* ensure section is visible below fixed nav */
+    background: var(--bg-dark); /* default background for most sections */
+}
+
+/* About section is full black */
+.about-section {
+    background: var(--bg-black);
+}
+
+/* About grid layout */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* equal 6/6 columns */
+    gap: 3rem;
+    align-items: center; /* vertically center the columns */
+}
+
+/* Left column should stay at the top, right column centered to match screenshot */
+.about-left { align-self: start; }
+.about-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+@media (max-width: 900px) {
+    .about-left, .about-right { align-self: auto; }
+}
+/* Remove default global H2 underline for the About heading (we use .accent-line)
+   and tighten vertical spacing */
+.about-section {
+    padding: 60px 10%;
+}
+.about-section h2 {
+    margin: 0 0 6px 0;
+    border-bottom: none; /* remove the other underline */
+}
+
+.accent-line {
+    width: 50px;
+    height: 4px;
+    background: var(--primary);
+    margin: 8px 0 14px 0;
+    border-radius: 2px;
+}
+
+.mini {
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    margin-bottom: 10px;
+}
+
+/* Smaller skill text and smaller leading */
+.skill-list h3 {
+    font-size: 1.15rem;
+    margin: 8px 0;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+/* Align descriptive text to the top (beside the skill list) */
+.about-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* ensures text starts at same top as left column content */
+}
+
+.about-right p {
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    max-width: 680px;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+    .about-left {
+        margin-bottom: 1rem;
+    }
+    .skill-list h3 { font-size: 1.05rem; }
 }
 
 h2 {
