@@ -94,6 +94,21 @@ window.addEventListener('load', () => {
     startTyping();
     updateScrollOffset();
     initSmoothScrolling();
+
+    // flip-card: support click/tap toggle and keyboard activation for accessibility
+    document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const pressed = card.getAttribute('aria-pressed') === 'true';
+            card.setAttribute('aria-pressed', (!pressed).toString());
+            card.classList.toggle('flipped');
+        });
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+            }
+        });
+    });
 });
 
 window.addEventListener('resize', updateScrollOffset);
