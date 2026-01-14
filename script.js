@@ -89,11 +89,75 @@ function initSmoothScrolling() {
     });
 }
 
+/* Parallax for hero: move card left and image right as user scrolls */
+function initParallax() {
+    const section = document.getElementById('hero');
+    if (!section) return;
+    const card = section.querySelector('.hero-card');
+    const imageWrap = section.querySelector('.hero-image');
+    if (!card || !imageWrap) return;
+
+    let ticking = false;
+
+    function update() {
+        const rect = section.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const sh = rect.height;
+        const top = rect.top;
+        
+        // ease in only when section scrolls UP and out of view
+        // when top = 0 (section at top of viewport): ease = 0, no movement
+        // when top = -sh (section completely scrolled past): ease = 1, full movement
+        let ease = 0;
+        if (top < 0) {
+            ease = Math.min(1, Math.abs(top) / sh);
+        }
+        
+        // smooth easing curve
+        ease = Math.sin(ease * Math.PI / 2);
+
+        // compute dynamic max offsets so elements can move fully out of frame
+        const cardRect = card.getBoundingClientRect();
+        const imageRect = imageWrap.getBoundingClientRect();
+        // distance to move card fully out to the left: right edge distance plus width
+        const maxCard = Math.max(cardRect.right + cardRect.width, 300);
+        // distance to move image fully out to the right: space to right edge plus its width
+        const maxImage = Math.max(window.innerWidth - imageRect.left + imageRect.width, 300);
+
+        // translate card left and image right (ease = 0..1)
+        const cardX = -maxCard * ease;
+        const imageX = maxImage * ease;
+
+        card.style.transform = `translateX(${cardX.toFixed(2)}px)`;
+        imageWrap.style.transform = `translateX(${imageX.toFixed(2)}px)`;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                update();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }
+
+    // reset on resize
+    function onResize() { update(); }
+
+    // initial
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
+}
+
+
 window.addEventListener('load', () => {
     loadRepos();
     startTyping();
     updateScrollOffset();
     initSmoothScrolling();
+    initParallax();
 
     // flip-card: support click/tap toggle and keyboard activation for accessibility
     document.querySelectorAll('.flip-card').forEach(card => {

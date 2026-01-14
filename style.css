@@ -5,6 +5,7 @@
     --secondary: #169976;
     --text-white: #ffffff;
     --scroll-offset: 88px; /* updated dynamically by JS */
+    --parallax-offset: 44px; /* px left/right shift at max */
 }
 
 * {
@@ -283,6 +284,7 @@ h2 {
     max-width: 420px; /* match previous max */
     perspective: 1200px;
     cursor: pointer;
+    will-change: transform;
 }
 
 .flip-card-inner {
@@ -291,8 +293,8 @@ h2 {
     aspect-ratio: 1 / 1; /* or use a fixed height like height: 420px; */
     transition: transform 0.9s cubic-bezier(.2,.9,.2,1);
     transform-style: preserve-3d;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    will-change: transform, opacity;
 }
 
 .flip-card:hover .flip-card-inner,
@@ -320,6 +322,7 @@ h2 {
     display: block;
     object-fit: cover;
     border-radius: 10px;
+    box-shadow: none; /* ensure no shadow */
 }
 
 .flip-card-back {
@@ -328,6 +331,10 @@ h2 {
 
 /* Slight lift while hovering */
 .flip-card:hover { transform: translateY(-6px); transition: transform 0.2s; }
+
+/* Hints for parallax on hero card & image */
+.hero-card,
+.hero-image { will-change: transform; }
 
 @media (max-width: 900px) {
     .hero-image {
