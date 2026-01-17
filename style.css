@@ -297,8 +297,6 @@ h2 {
     will-change: transform, opacity;
 }
 
-.flip-card:hover .flip-card-inner,
-.flip-card:focus .flip-card-inner,
 .flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
 }
@@ -315,6 +313,15 @@ h2 {
     overflow: hidden;
 }
 
+.flip-card-front {
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
 .flip-card-front img,
 .flip-card-back img {
     width: 100%;
@@ -325,16 +332,12 @@ h2 {
     box-shadow: none; /* ensure no shadow */
 }
 
-.flip-card-back {
-    transform: rotateY(180deg);
-}
-
 /* Slight lift while hovering */
 .flip-card:hover { transform: translateY(-6px); transition: transform 0.2s; }
 
 /* Hints for parallax on hero card & image */
 .hero-card,
-.hero-image { will-change: transform; }
+.hero-image { will-change: transform, opacity; }
 
 @media (max-width: 900px) {
     .hero-image {
