@@ -281,24 +281,15 @@ h2 {
 /* Flip card */
 .flip-card {
     width: 100%;
-    max-width: 420px; /* match previous max */
-    perspective: 1200px;
+    max-width: 420px;
     cursor: pointer;
-    will-change: transform;
 }
 
 .flip-card-inner {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1; /* or use a fixed height like height: 420px; */
-    transition: transform 0.9s cubic-bezier(.2,.9,.2,1);
-    transform-style: preserve-3d;
+    aspect-ratio: 1 / 1;
     border-radius: 10px;
-    will-change: transform, opacity;
-}
-
-.flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg);
 }
 
 .flip-card-front,
@@ -307,19 +298,30 @@ h2 {
     inset: 0;
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
     border-radius: 10px;
     overflow: hidden;
+    transition: opacity 0.4s ease-in-out;
 }
 
 .flip-card-front {
-    transform: rotateY(0deg);
+    opacity: 1;
     z-index: 2;
 }
 
 .flip-card-back {
-    transform: rotateY(180deg);
+    opacity: 0;
+    z-index: 1;
+}
+
+/* On hover: hide front, show back */
+.flip-card:hover .flip-card-front,
+.flip-card:focus .flip-card-front {
+    opacity: 0;
+}
+
+.flip-card:hover .flip-card-back,
+.flip-card:focus .flip-card-back {
+    opacity: 1;
 }
 
 .flip-card-front img,
@@ -329,7 +331,6 @@ h2 {
     display: block;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: none; /* ensure no shadow */
 }
 
 /* Slight lift while hovering */

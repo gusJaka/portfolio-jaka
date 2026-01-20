@@ -174,35 +174,16 @@ window.addEventListener('load', () => {
     initSmoothScrolling();
     initParallax();
 
-    // flip-card: support click/tap toggle and keyboard activation for accessibility
+    // flip-card: flip on hover/focus via CSS; keep debug logging and clear aria-pressed
     const flipCards = Array.from(document.querySelectorAll('.flip-card'));
     flipCards.forEach(card => {
         // log front/back image sources for debugging
         const frontImg = card.querySelector('.flip-card-front img');
         const backImg = card.querySelector('.flip-card-back img');
         console.debug('flip-card images:', { front: frontImg ? frontImg.src : null, back: backImg ? backImg.src : null });
-
-        card.addEventListener('click', () => {
-            const pressed = card.getAttribute('aria-pressed') === 'true';
-            card.setAttribute('aria-pressed', (!pressed).toString());
-            card.classList.toggle('flipped');
-            console.debug('flip-card toggled:', card.classList.contains('flipped'));
-        });
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                card.click();
-            }
-        });
+        // In hover mode aria-pressed remains false; no click toggling
+        card.setAttribute('aria-pressed', 'false');
     });
-
-    // Auto-flip once on load for a quick visual check (then revert) so you can see the back image
-    if (flipCards.length) {
-        setTimeout(() => {
-            flipCards.forEach(card => card.classList.add('flipped'));
-            setTimeout(() => { flipCards.forEach(card => card.classList.remove('flipped')); }, 900);
-        }, 400);
-    }
 });
 
 window.addEventListener('resize', updateScrollOffset);
