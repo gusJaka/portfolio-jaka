@@ -200,17 +200,18 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 2rem 0;
     background: linear-gradient(to bottom, var(--bg-black), var(--bg-dark));
 }
 
 .hero-container {
     display: flex;
     align-items: center;
-    width: 90%;
-    max-width: 1200px;
+    justify-content: space-between;
+    width: min(96vw, 1400px);
     margin: 0 auto;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .hero-content {
@@ -223,12 +224,12 @@ h2 {
 
 /* Card that holds hero text */
 .hero-card {
-    background: rgba(255,255,255,0.02); /* subtle lift against dark bg */
-    border: 1px solid rgba(29,205,159,0.08);
-    padding: 28px 32px;
-    border-radius: 12px;
-    max-width: 680px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.55);
+    background: rgba(255,255,255,0.04); /* subtle lift against dark bg */
+    border: 1px solid rgba(29,205,159,0.14);
+    padding: 36px 46px;
+    border-radius: 16px;
+    max-width: 760px;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.55);
 }
 
 .hero-card h1 { margin: 0 0 8px 0; }
@@ -287,17 +288,16 @@ h2 {
 }
 
 .hero-image {
-    flex: 0 0 40%;
-    max-width: 40%;
+    flex: 0 0 46%;
+    max-width: 46%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 
 /* Flip card */
 .flip-card {
-    width: 100%;
-    max-width: 420px;
+    width: min(100%, 500px);
     cursor: pointer;
 }
 
