@@ -1,14 +1,34 @@
-// Simple Scroll Reveal Effect
-window.addEventListener('scroll', () => {
+// Section reveal using IntersectionObserver for smooth, reversible transitions
+(function initSectionReveal(){
     const sections = document.querySelectorAll('.section');
-    sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            section.style.opacity = "1";
-            section.style.transform = "translateY(0)";
-        }
-    });
-});
+    if (!sections.length) return;
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.intersectionRatio > 0.12) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: [0, 0.12] });
+
+        sections.forEach(s => observer.observe(s));
+    } else {
+        // Fallback for older browsers: update on scroll and resize
+        const onScroll = () => {
+            sections.forEach(section => {
+                const top = section.getBoundingClientRect().top;
+                const inView = top < window.innerHeight - 100 && top > -section.offsetHeight + 100;
+                if (inView) section.classList.add('in-view'); else section.classList.remove('in-view');
+            });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll);
+        onScroll();
+    }
+})();
 
 // Mock Repository Loader
 const loadRepos = () => {
@@ -173,6 +193,8 @@ window.addEventListener('load', () => {
     updateScrollOffset();
     initSmoothScrolling();
     initParallax();
+
+
 
     // flip-card: flip on hover/focus via CSS; keep debug logging and clear aria-pressed
     const flipCards = Array.from(document.querySelectorAll('.flip-card'));
