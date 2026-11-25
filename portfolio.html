@@ -1,90 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gus Jaka | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gus Jaka &mdash; full stack developer building thoughtful web applications, REST APIs, and cloud solutions.">
+  <meta name="theme-color" content="#101412">
+  <title>Gus Jaka &mdash; Developer &amp; Creative Problem Solver</title>
+  <link rel="icon" href="assets/gusjakalogo.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-    <nav>
-        <div class="logo">PORTFOLIO<span>.</span></div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="logo" href="#hero" aria-label="Gus Jaka home">gusjaka<span>&reg;</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a><a href="#projects">Work</a><a href="#skills">Skills</a>
+      <a class="nav-contact" href="#contact">Let&rsquo;s talk <span aria-hidden="true">&nearr;</span></a>
     </nav>
-
-    <section id="hero" class="section">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-card">
-                    <h1>Hi, I'm <span class="highlight">Gus Jaka</span></h1>
-                    <p class="subtitle"><span id="typed" aria-live="polite">Full Stack Developer</span><span class="cursor">|</span></p>
-                    <a href="#projects" class="btn">View My Work</a>
-
-                    <!-- Social links (use image assets) -->
-                    <div class="socials" aria-label="Social links">
-                        <a href="https://github.com/gusJaka" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                            <img src="assets/github-142-svgrepo-com.svg" alt="GitHub">
-                        </a>
-                        <a href="https://www.linkedin.com/in/gus-jaka/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <img src="assets/linkedin-svgrepo-com.svg" alt="LinkedIn">
-                        </a>
-                        <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                            <img src="assets/twitter-154-svgrepo-com.svg" alt="Twitter">
-                        </a>
-                        <a href="https://instagram.com/your-handle" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <img src="assets/instagram-svgrepo-com.svg" alt="Instagram">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="flip-card" tabindex="0" role="button" aria-pressed="false" aria-label="Flip image">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="assets/2842680.jpg" alt="Developer at work">
-                        </div>
-                        <div class="flip-card-back">
-                            <img src="assets/8648.jpg" alt="Scenic bridge">
-                        </div>
-                    </div>
-                </div>
-            </div>
+  </header>
+  <main id="main">
+    <section id="hero" class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> DEVELOPER & CREATIVE PROBLEM SOLVER</p>
+        <h1>Thoughtful code.<br>Meaningful<br><span class="serif">digital experiences.</span></h1>
+        <p class="hero-description">Hi, I&rsquo;m Gus Jaka. I bring ideas to life through full stack development, reliable APIs, and cloud technology.</p>
+        <div class="hero-actions"><a class="button" href="#projects">Explore my work <span aria-hidden="true">&nearr;</span></a><a class="text-link" href="#about">A little about me <span aria-hidden="true">&darr;</span></a></div>
+        <div class="socials"><span>FIND ME ON</span><a href="https://github.com/gusJaka" target="_blank" rel="noopener noreferrer"><img src="assets/github-142-svgrepo-com.svg" alt="">GitHub &nearr;</a><a href="https://www.linkedin.com/in/gus-jaka/" target="_blank" rel="noopener noreferrer"><img src="assets/linkedin-svgrepo-com.svg" alt="">LinkedIn &nearr;</a></div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-topline"><span><span class="status-dot"></span> THE SPACE WHERE IDEAS BECOME REAL</span><span>01 / GJ</span></div>
+        <div class="art-frame" tabindex="0" aria-label="Hover or focus to view the alternate image">
+          <img class="art-image art-image-primary" src="assets/gusjakaimagereal.png" alt="Portrait of Gus Jaka" fetchpriority="high">
+          <img class="art-image art-image-alternate" src="assets/8648.jpg" alt="Scenic bridge view">
         </div>
+        <div class="code-label"><span class="code-symbol">&lt;/&gt;</span><div>From concept to deployment<small>Building with purpose, one detail at a time.</small></div></div>
+        <div class="visual-bottomline"><span>DESIGN. DEVELOP. REFINE.</span><span aria-hidden="true">&nearr;</span></div>
+      </div>
+      <div class="hero-bottom"><span>FULL STACK DEVELOPMENT</span><span>WEB &middot; APIs &middot; CLOUD</span><a href="#about">SCROLL TO EXPLORE &darr;</a></div>
     </section>
-
-    <section id="about" class="section about-section">
-        <div class="about-grid">
-            <div class="about-left">
-                <h2>About</h2>
-                <div class="accent-line"></div>
-                <div class="mini">MY SKILLSET.</div>
-
-                <div class="skill-list">
-                    <h3>Full Stack Development</h3>
-                    <h3>Cloud Computing</h3>
-                    <h3>Cross Platform Development</h3>
-                </div>
-            </div>
-
-            <div class="about-right">
-                <p>As an experienced full-stack developer, I specialize in creating robust REST APIs and leveraging cloud technologies. My passion lies in building efficient, user-centric applications. With expertise in AWS, Azure, and Google Cloud, I architect scalable systems and stay up-to-date with the latest tools and frameworks to enhance backend processes.</p>
-
-                <p>Whether it's optimizing database queries, designing elegant APIs, or ensuring robust security, I approach each challenge with enthusiasm and a growth mindset. From concept to deployment, I'm committed to excellence and turning ideas into exceptional solutions.</p>
-            </div>
-        </div>
+    <section id="about" class="section wrap">
+      <div class="section-heading"><p class="eyebrow">01 / A LITTLE ABOUT ME</p><h2>Curiosity drives me.<br><span class="serif">Building keeps me going.</span></h2></div>
+      <div class="about-grid"><p class="large-copy">I connect the dots between a good idea and a working product.</p><div class="about-copy"><p>I&rsquo;m a full stack developer with a focus on REST APIs, cloud technologies, and user-centric applications. I enjoy working across the stack, from the interface people interact with to the systems running behind it.</p><p>Whether I&rsquo;m optimizing database queries or designing an API, I approach each challenge with curiosity and a growth mindset. My goal is simple: build things that are useful, reliable, and a pleasure to use.</p><a class="text-link" href="https://www.linkedin.com/in/gus-jaka/" target="_blank" rel="noopener noreferrer">Explore my background on LinkedIn &nearr;</a></div></div>
+      <div class="focus-areas"><div><span>01</span><h3>Full stack development</h3><p>Bringing interfaces and backend systems together.</p></div><div><span>02</span><h3>APIs & cloud</h3><p>Connecting services and building for deployment.</p></div><div><span>03</span><h3>Cross platform development</h3><p>Creating experiences across web and mobile.</p></div></div>
     </section>
-
-    <section id="skills" class="section">
-        <h2>Skills</h2>
-
+    <section id="projects" class="section work-section"><div class="wrap">
+      <div class="section-heading heading-row"><div><p class="eyebrow">02 / THE WORKBENCH</p><h2>Always building.<br><span class="serif">Always learning.</span></h2></div><a class="text-link" href="https://github.com/gusJaka?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories &nearr;</a></div>
+      <a class="featured-work" href="https://github.com/gusJaka" target="_blank" rel="noopener noreferrer"><div class="repository-art" aria-hidden="true"><span class="art-caption">IDEA &rarr; CODE &rarr; EXPERIENCE</span><span class="big-brackets">{<i>gj</i>}</span><div class="art-code"><span>const</span> idea = buildSomething();<br><span>return</span> keepExploring(idea);</div></div><div class="featured-copy"><p class="eyebrow">CODE &amp; EXPERIMENTS</p><h3>A closer look<br>at what I build.</h3><p>Explore my repositories for source code, experiments, and the projects I&rsquo;m working on.</p><span class="tags"><span>Development</span><span>Open source</span></span><span class="project-link">Explore GitHub <span>&nearr;</span></span></div></a>
+      <p class="work-note">Project case studies are coming next. For now, you can explore my code on GitHub.</p>
+    </div></section>
+    <section id="skills" class="section wrap"><div class="section-heading"><p class="eyebrow">03 / MY TOOLKIT</p><h2>The tools behind<br><span class="serif">the experience.</span></h2><p class="section-intro">Languages, frameworks, and technologies I work with.</p></div>
         <div class="skill-category">
             <h3>Languages</h3>
             <div class="skills-grid">
@@ -134,37 +99,10 @@
                 <div class="skill"><img src="https://api.iconify.design/mdi/code-braces.svg?color=%23ffffff" alt="Yacc"><span>Yacc</span></div>
             </div>
         </div>
+
     </section>
-
-    <section id="projects" class="section projects-section">
-        <h2>Projects</h2>
-        <div class="grid">
-            <div class="card">Project 1</div>
-            <div class="card">Project 2</div>
-        </div>
-    </section>
-
-    <section id="repositories" class="section">
-        <h2>Latest Repositories</h2>
-        <div id="repo-list" class="grid">
-            <div class="card repo-card">Loading repos...</div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <h2>Get In Touch</h2>
-        <form id="contact-form">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Message"></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Your Name. Built with Passion.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    <section id="contact" class="section wrap contact-section"><p class="eyebrow">04 / START A CONVERSATION</p><h2>Have something<br><span class="serif">in mind?</span><span class="contact-star" aria-hidden="true">&#10043;</span></h2><div class="contact-bottom"><p>A project, an opportunity, or just a hello.<br>I&rsquo;d love to hear from you.</p><a class="button" href="https://www.linkedin.com/in/gus-jaka/" target="_blank" rel="noopener noreferrer">Let&rsquo;s connect on LinkedIn <span aria-hidden="true">&nearr;</span></a></div></section>
+  </main>
+  <footer class="wrap"><a class="logo" href="#hero">gusjaka<span>&reg;</span></a><p>&copy; <span id="year">2026</span> Gus Jaka. Crafted with care.</p><a class="text-link" href="#hero">Back to top &uarr;</a></footer>
 </body>
 </html>
